@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Create Recipe{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if request.user.is_authenticated %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Procedure</label>
+            <textarea name="procedure" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Ingredients</label>
+            <textarea name="ingredients"class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Picture</label>
+            <input type="file" name="picture" class="form-control" >
+          </div>
+          <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" >Category</label>
+              <select class="form-select" aria-label="Default select example" name="category_id">
+                  {% for category in categories %}
+                  <option value={{category.pk}}>{{category}}</option>
+  
+                  {% endfor %}
+                </select>
+            </div>
+  
+          <button type="submit" class="btn btn-primary">Add Recipe</button>
+        </form>
+
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            please login first
+          </div>
+        {% endif %}
+        
+
+</div>
+
+{% endblock body %}

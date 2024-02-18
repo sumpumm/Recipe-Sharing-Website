@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Index Page{% endblock title %}
+
+{% block body %}
+
+<div class="d-flex flex-wrap">
+{% for recipe in recipe %}
+<div class="card my -4" style="width: 18rem;">
+  <img src={{recipe.picture.url}} class="card-img-top" width="550" height="300">
+  <div class="card-body">
+    <h5 class="card-title">{{recipe.title}}</h5>
+    <p class="card-text">{{recipe.category}}</p>
+    <a href="/recipe/{{recipe.id}}" class="btn btn-primary">See more</a>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+
+
+{% endblock body %}

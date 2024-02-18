@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{recipe.title}}{% endblock title %}
+
+{% block body %}
+<img style='max-width:300px' src={{recipe.picture.url}} class="card-img-top" >
+<h1>{{recipe.title}}</h1>
+<b>Ingredients</b>
+<p>{{recipe.ingredients}}</p>
+<b>Procedure</b>
+<p>{{recipe.procedure}}</p>
+<b>Created by : {{user.username}} </b>
+{% if show %}
+<a href="/recipe/edit/{{recipe.id}}" class="btn btn-primary">Edit</a>
+<a href="/recipe/delete/{{recipe.id}}" class="btn btn-danger">Delete</a>
+{% endif %}
+
+
+{% endblock body %}
