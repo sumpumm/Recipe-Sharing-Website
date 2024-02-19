@@ -68,12 +68,12 @@ def edit(request,pk):
             "categories":categories,
             
         }
-    if request.method=="PUT":
+    if request.method=="POST":
         recipe.title=request.POST.get('title')
         recipe.category_id=request.POST.get('category_id')
         recipe.procedure=request.POST.get('procedure')
         recipe.ingredients=request.POST.get('ingredients')
-        recipe.picture=request.FILES.get('picture')
+        #recipe.picture=request.FILES.get('picture')
         recipe.save()
         return redirect('/')
     return render(request,'edit.html',context) 

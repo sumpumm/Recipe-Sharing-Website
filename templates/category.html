@@ -2,8 +2,14 @@
 {% block title %}Categories{% endblock title %}
 
 {% block body %}
-{% for category in categories %}
-<a href='/category/{{category.id}}' >{{category.name}}</a>
+<h2>Our Availabe Categories</h2>
 <br>
+{% for category in categories %}
+
+<ul class="list-group">
+    <li class="list-group-item" ><a href='/category/{{category.id}}' >{{category.name}}</a></li>
+  </ul>
 {% endfor %}
 {% endblock body %}
+
+
